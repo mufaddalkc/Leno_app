@@ -5,6 +5,28 @@ document.addEventListener('DOMContentLoaded', function(){
     toggleBtn.addEventListener('click', function(){
         mobileMenu.classList.toggle('active');
     });
+
+    const model = document.querySelector('#videomodel');
+    const videoBtn = document.querySelector('.preview__video-button');
+    const closeBtn = document.querySelector('.model__close-button');
+    const vidoplayer = document.querySelector('#videoplayer');
+
+    videoBtn.addEventListener('click', function(){
+        model.style.display='block';
+        vidoplayer.src='https://www.youtube.com/embed/nRBcfIqEglw?si=tfU3XexgZyXzQ4FJ';
+
+        closeBtn.addEventListener('click', function(){
+            model.style.display = 'none';
+            vidoplayer.src='';
+        });
+
+        window.addEventListener('click', function(event){
+            if(event.target==model){
+            model.style.display = 'none';
+            vidoplayer.src='';
+            }
+        })
+    });
 });
 
 window.addEventListener('scroll', function(){
